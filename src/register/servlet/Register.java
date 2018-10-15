@@ -2,7 +2,6 @@ package register.servlet;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -77,10 +76,6 @@ public class Register extends HttpServlet {
 			request.setAttribute("formErrors", formErrors);
 			request.setAttribute("formInfo", userCred);
 			request.getRequestDispatcher("jsp/register.jsp").forward(request, response);
-			
-			for(String error: formErrors) {
-				System.out.println(error);
-			}
 			
 		}
 	}

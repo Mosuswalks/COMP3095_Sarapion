@@ -24,26 +24,32 @@
                     <div class="box">
                         <form method="post" action="Login">
                             <div class="field">
-                                <div class="control">
-                                    <input class="input is-large" type="email" name="username" placeholder="Your Email">
+                                <div class="control has-icons-left">
+                                    <input class="input is-large" type="email" name="username" placeholder="Enter Email">
+                                    <span class="icon is-small is-left">
+						     	 		<i class="fa fa-envelope"></i>
+						    		</span>
                                 </div>
                             </div>
 
                             <div class="field">
-                                <div class="control">
-                                    <input class="input is-large" type="password" name="password" placeholder="Your Password" >
+                                <div class="control has-icons-left">
+                                    <input class="input is-large" type="password" name="password" placeholder="Enter Password" >
+                                    <span class="icon is-small is-left">
+						     	 		<i class="fa fa-lock"></i>
+						    		</span>
                                 </div>
                             </div>
-            					<div class="field is-centered">
-            						<div class="control has-text-centered">
-            							<div class="g-recaptcha" data-sitekey="6LdKqXMUAAAAAHvEgIn8Ozwvz2rOs1H9PR8R6SDC"></div>
-            						</div>
+            				<div class="field column is-offset-1">
+            					<div class="control has-text-centered">
+            						<div class="g-recaptcha" data-sitekey="6LfKBXUUAAAAAMl0uRqth8Oahyq89TV1axRVQbRa"></div>
             					</div>
-            					<div class="field">
-		            				<div class="control has-text-centered">
-		                         		<button class="button is-success is-medium" type="submit">Login</button>
-		                            
-		                        		<a class="button is-info is-medium" href="register">Register</a>
+            				</div>
+           					<div class="field">
+		           				<div class="control has-text-centered">
+		                       		<button class="button is-success is-medium" type="submit">Login</button>
+	                            
+	                        		<a class="button is-info is-medium" href="register">Register</a>
 								</div>
 							</div>
                         </form>

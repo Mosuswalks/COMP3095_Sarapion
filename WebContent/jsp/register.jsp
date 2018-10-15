@@ -38,7 +38,7 @@
               
               <div class="box">
                 
-                <form method="post" action="Register">
+                <form method="post" action="register">
                 
                 	<!---------- FIRST NAME & LAST NAME FIELDS ---------->
 					<div class="columns">
