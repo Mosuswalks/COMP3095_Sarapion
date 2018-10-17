@@ -3,7 +3,7 @@ package utilities;
 import java.util.regex.Pattern;
 import java.util.*;
 
-public class helper {
+public class Helper {
 	
 	public static boolean validName(String name) {
 		boolean nameMatch = Pattern.matches("[a-zA-Z]", name);
