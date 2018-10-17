@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <!DOCTYPE html>
 <html>
 
@@ -71,5 +71,5 @@
         </div>
     </section>
     <script async type="text/javascript" src="../js/bulma.js"></script>
-</body>
+</body>	
 </html>
