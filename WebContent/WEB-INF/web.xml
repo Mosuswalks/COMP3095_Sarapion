@@ -9,23 +9,16 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-<<<<<<< HEAD
-=======
-  
->>>>>>> c6252a8bd69186643dbea96adbd5867c0676b89d
+
   <servlet>
     <servlet-name>Login</servlet-name>
     <servlet-class>login.servlet.Login</servlet-class>
   </servlet>
-<<<<<<< HEAD
-=======
-  
->>>>>>> c6252a8bd69186643dbea96adbd5867c0676b89d
   <servlet-mapping>
     <servlet-name>Login</servlet-name>
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
-<<<<<<< HEAD
+
   <servlet>
     <servlet-name>Register</servlet-name>
     <servlet-class>register.servlet.Register</servlet-class>
@@ -34,18 +27,5 @@
     <servlet-name>Register</servlet-name>
     <url-pattern>/register</url-pattern>
   </servlet-mapping>
-=======
-  
-  <servlet>
-  	<servlet-name>Register</servlet-name>
-  	<servlet-class>register.servlet.Register</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-  	<servlet-name>Register</servlet-name>
-  	<url-pattern>/register</url-pattern>
-  </servlet-mapping>
-  
-  
->>>>>>> c6252a8bd69186643dbea96adbd5867c0676b89d
+
 </web-app>

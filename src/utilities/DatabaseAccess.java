@@ -7,7 +7,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.util.*;
-import beans.User;
 
 public class DatabaseAccess {
 	

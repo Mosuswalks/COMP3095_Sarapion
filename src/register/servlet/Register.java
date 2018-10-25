@@ -10,10 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import java.util.*;
-import beans.User;
-import utilities.*;
 
+import java.util.*;
+import utilities.*;
 
 
 /**
@@ -51,8 +50,6 @@ public class Register extends HttpServlet {
 		String password = request.getParameter("password");
 		String passwordConfirm = request.getParameter("passwordConfirmation");
 		
-		//User newUser = new User(firstName, lastName, address, email, password);
-		
 		
 		HashMap<String, String> userCred = new HashMap<String, String>();
 		userCred.put("fName", firstName);
@@ -66,6 +63,7 @@ public class Register extends HttpServlet {
 		
 		if(formErrors.size() == 0) {
 			try {
+				
 				DatabaseAccess.registerUser(userCred);
 				
 				//Setup HTTP Session
