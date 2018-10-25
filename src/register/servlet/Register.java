@@ -71,8 +71,9 @@ public class Register extends HttpServlet {
 				// Set the username as an attribute
 				session.setAttribute("username", email);
 				session.setMaxInactiveInterval(60 * 5);
+			
 				
-				request.getRequestDispatcher("dashboard.jsp").forward(request, response);
+				request.getRequestDispatcher("jsp/dashboard.jsp").forward(request, response);
 				
 			} catch (Exception e) {
 				e.printStackTrace();

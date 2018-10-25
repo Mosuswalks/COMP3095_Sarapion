@@ -13,6 +13,16 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
         <link rel="stylesheet" type="text/css" href="css/hero.css">
         <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
+        <%
+        		
+  			if (!session.isNew()){
+    				%><jsp:forward page="/login" /><%
+    				System.out.println("Rediret not workig");
+ 	 		}
+        		
+        	
+        		
+		%>
     </head>
     <body>
         <section class="hero is-info is-medium is-bold">
