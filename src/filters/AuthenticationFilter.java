@@ -28,14 +28,12 @@ public class AuthenticationFilter implements Filter{
 		HttpServletRequest request = (HttpServletRequest) arg0;
 		
 		
-		if(request.getRequestURI().startsWith("/COMP3095_Sarapion/login") 
-				|| request.getRequestURI().startsWith("/COMP3095_Sarapion/jsp/dashboard.jsp")) {
-			
+		if(request.getRequestURI().startsWith("/COMP3095_Sarapion/jsp/dashboard.jsp")) {
+			System.out.println("Filter Check");
 			HttpSession session = request.getSession();
 			
 			if(session.getAttribute("username") == null) {
 				request.getRequestDispatcher("/COMP3095_Sarapion/jsp/login.jsp").forward(request, arg1);
-				
 			}
 		}
 		arg2.doFilter(request, arg1);

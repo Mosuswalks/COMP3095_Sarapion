@@ -4,6 +4,7 @@ import java.sql.Connection;
 import utilities.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,7 +29,6 @@ public class Login extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
 		request.getRequestDispatcher("jsp/login.jsp").forward(request,response);
 	}
 	/**
@@ -40,25 +40,29 @@ public class Login extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String reCaptcha = request.getParameter("g-recaptcha-response");
-		
+		// 
 		if(VerifyReCaptcha.verify(reCaptcha)) {
 			try {
 				boolean isValidUser = DatabaseAccess.validateUser(username,password);
-	
+				//isValidUser
 				if(isValidUser){
 					
 					//Setup HTTP Session
 					HttpSession session = request.getSession();
+					
 					// Set the username as an attribute
 					session.setAttribute("username", username);
 					session.setMaxInactiveInterval(60 * 5);
+					
+					
 					// Forward to the dashboard page
-					request.getRequestDispatcher("jsp/dashboard.jsp").forward(request, response);
+					response.sendRedirect("COMP3095_Sarapion/dashboard");
+					//request.getRequestDispatcher("jsp/dashboard.jsp").forward(request, response);
 				}
 				else {
 					String loginError = "Invalid Credentials. Please try again.";
 					request.setAttribute("error", loginError);
-					request.getRequestDispatcher("jsp/login.jsp").forward(request, response);
+					response.sendRedirect("COMP3095_Sarapion/login");
 				}
 			} catch (Exception e) {
 				e.printStackTrace();

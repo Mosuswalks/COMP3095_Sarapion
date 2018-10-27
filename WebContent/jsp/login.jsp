@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
     <link rel="stylesheet" type="text/css" href="css/login.css">
     <script src='https://www.google.com/recaptcha/api.js'></script>
+    
 </head>
 
 <body>

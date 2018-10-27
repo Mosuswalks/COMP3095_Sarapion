@@ -9,7 +9,7 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-
+  
   <servlet>
     <servlet-name>Login</servlet-name>
     <servlet-class>login.servlet.Login</servlet-class>
@@ -18,7 +18,7 @@
     <servlet-name>Login</servlet-name>
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
-
+  
   <servlet>
     <servlet-name>Register</servlet-name>
     <servlet-class>register.servlet.Register</servlet-class>
@@ -28,33 +28,33 @@
     <url-pattern>/register</url-pattern>
   </servlet-mapping>
   
-  
   <servlet>
-  	<servlet-name>Dashboard</servlet-name>
-  	<servlet-class>dashboard.servlet.Dashboard</servlet-class>
+  	<servlet-name>Logout</servlet-name>
+  	<servlet-class>logout.servlet.Logout</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>Dashboard</servlet-name>
-  	<url-pattern>/dashboard</url-pattern>
+  	<servlet-name>Logout</servlet-name>
+  	<url-pattern>/logout</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>Dashboard</servlet-name>
+    <servlet-class>dashboard.servlet.Dashboard</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Dashboard</servlet-name>
+    <url-pattern>/dashboard</url-pattern>
+  </servlet-mapping>
   
-  
-  <!-- Session -->
   <session-config>
-  	<session-timeout>60</session-timeout>
+    <session-timeout>60</session-timeout>
   </session-config>
-  
-  
-  
-  <!-- Filters -->
   <filter>
-  	<filter-name>AuthenticationFilter</filter-name>
-  	<filter-class>filters.AuthenticationFilter</filter-class>
+    <filter-name>AuthenticationFilter</filter-name>
+    <filter-class>filters.AuthenticationFilter</filter-class>
   </filter>
   <filter-mapping>
-  	<filter-name>AuthenticationFilter</filter-name>
-  	<url-pattern>/*</url-pattern>
+    <filter-name>AuthenticationFilter</filter-name>
+    <url-pattern>/*</url-pattern>
   </filter-mapping>
-
 </web-app>

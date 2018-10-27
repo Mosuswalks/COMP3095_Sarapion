@@ -32,7 +32,6 @@ public class VerifyReCaptcha {
 			// Send Request
 			connection.setDoOutput(true);
 			
-			
 			OutputStream outStream = connection.getOutputStream();
 			outStream.write(postParams.getBytes());
 			
@@ -44,6 +43,7 @@ public class VerifyReCaptcha {
 			
 			InputStream input = connection.getInputStream();
 			
+			// Parse the incoming JSON
 			JSONParser jsonParser = new JSONParser();
 			JSONObject jsonObject = (JSONObject) jsonParser.parse(new InputStreamReader(input, "UTF-8"));
 			

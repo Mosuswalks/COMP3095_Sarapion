@@ -68,10 +68,12 @@ public class Register extends HttpServlet {
 				
 				//Setup HTTP Session
 				HttpSession session = request.getSession();
+				
 				// Set the username as an attribute
 				session.setAttribute("username", email);
 				session.setMaxInactiveInterval(60 * 5);
-			
+				
+				RegistrationEmail.sendEmail(userCred.get("email"), userCred.get("fName"));
 				
 				request.getRequestDispatcher("jsp/dashboard.jsp").forward(request, response);
 				
@@ -80,7 +82,6 @@ public class Register extends HttpServlet {
 			}
 		}
 		else {
-			
 			request.setAttribute("formErrors", formErrors);
 			request.setAttribute("formInfo", userCred);
 			request.getRequestDispatcher("jsp/register.jsp").forward(request, response);

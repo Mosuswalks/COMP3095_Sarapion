@@ -21,13 +21,14 @@ public class DatabaseAccess {
 	      // This will load the MySQL driver, each DB has its own driver
 	      Class.forName("com.mysql.cj.jdbc.Driver");
 	      // Setup the connection with the DB
-	      connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+database+"?"+"user=admin&password=sarapion");
+	      connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+database+"?"+"user=admin&password=sarapion&serverTimezone=UTC");
 	      return connect;
 	    } catch (Exception e) {
 	      throw e;
 	    } 
 	    
 	  }
+	  
 	  
 	  public static boolean validateUser(String username, String password) throws Exception {
 		  
@@ -56,6 +57,7 @@ public class DatabaseAccess {
 		  }
 		  return isValidUser;
 	  }
+	  
 	  
 	  public static boolean registerUser(HashMap<String, String> userCred)throws Exception {
 		  try {
