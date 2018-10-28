@@ -44,15 +44,10 @@
                             </div>
                       
                                 <div class="navbar-end">
-	                                <form method="post" action="Logout">
+	                                <form method="post" action="../logout">
 		                            		<span class="navbar-item">
-		                
-		                                     <button class="button is-hero"type="submit" class="submit">
-		                                     	<span class="icon">
-		                                     		<i class="fas fa-sign-out-alt"></i>
-		                                         	</span>
-		                                        	<span title="Hello from the other side">Log Out</span>						
-		                                     </button>
+		                					<button class="button is-info is-inverted is-outlined" type="submit" ><i class="fas fa-sign-out-alt"></i>Logout</button>
+		                   
 		                                </span>
 		                            </form>
 	                            </div>       
@@ -91,7 +86,7 @@
 		                                </div>
 		                            </div>
 		                        </article>
-	                    		</div>
+	                    	</div>
 	                </div>
                     <div class="tile is-vertical is-6">
                        <div class="tile is-parent is-shady">
@@ -120,7 +115,7 @@
         <footer class="footer">
             <div class="container">
                 <div class="columns">
-                    <div class="column">
+                    <div class="column is-half">
                         <h2><strong>Category</strong></h2>
                         <ul>
                             <li><a href="#">Mohamed Abdi </a>100-649-804</li>
@@ -131,17 +126,7 @@
                     </div>
                     
                 </div>
-                <div class="content has-text-centered">
-                    
-                    <div class="control level-item">
-                        <a href="https://github.com/dansup/bulma-templates">
-                            <div class="tags has-addons">
-                                <span class="tag is-dark">Bulma Templates</span>
-                                <span class="tag is-info">MIT license</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+            
             </div>
             <script src="../js/bulma.js"></script>
         </footer>

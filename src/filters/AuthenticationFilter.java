@@ -33,7 +33,7 @@ public class AuthenticationFilter implements Filter{
 			HttpSession session = request.getSession();
 			
 			if(session.getAttribute("username") == null) {
-				request.getRequestDispatcher("/COMP3095_Sarapion/jsp/login.jsp").forward(request, arg1);
+				request.getRequestDispatcher("../login").forward(request, arg1);
 			}
 		}
 		arg2.doFilter(request, arg1);

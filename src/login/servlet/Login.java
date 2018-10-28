@@ -29,7 +29,7 @@ public class Login extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("jsp/login.jsp").forward(request,response);
+		response.sendRedirect("jsp/login.jsp");
 	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -52,17 +52,18 @@ public class Login extends HttpServlet {
 					
 					// Set the username as an attribute
 					session.setAttribute("username", username);
+					session.setAttribute("firstName", arg1);
 					session.setMaxInactiveInterval(60 * 5);
 					
 					
 					// Forward to the dashboard page
-					response.sendRedirect("COMP3095_Sarapion/dashboard");
+					response.sendRedirect("jsp/dashboard.jsp");
 					//request.getRequestDispatcher("jsp/dashboard.jsp").forward(request, response);
 				}
 				else {
 					String loginError = "Invalid Credentials. Please try again.";
 					request.setAttribute("error", loginError);
-					response.sendRedirect("COMP3095_Sarapion/login");
+					response.sendRedirect("jsp/login.jsp");
 				}
 			} catch (Exception e) {
 				e.printStackTrace();

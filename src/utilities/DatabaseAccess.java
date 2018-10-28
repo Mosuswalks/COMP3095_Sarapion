@@ -30,7 +30,7 @@ public class DatabaseAccess {
 	  }
 	  
 	  
-	  public static boolean validateUser(String username, String password) throws Exception {
+	  public static Boolean validateUser(String username, String password) throws Exception {
 		  
 		  boolean isValidUser = false;
 		  try {
@@ -48,7 +48,9 @@ public class DatabaseAccess {
 			  
 			  // Execute Statement
 			  ResultSet set = statement.executeQuery();
+			 
 			  while(set.next()) {
+				  String firstName = set.getString(0);
 				  isValidUser = true;
 			  }
 		  }

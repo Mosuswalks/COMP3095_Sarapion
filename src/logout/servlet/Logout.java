@@ -44,7 +44,7 @@ public class Logout extends HttpServlet {
 				
 			}
 			System.out.println("Deleted Cookies");
-			response.sendRedirect("Login");
+			response.sendRedirect("login");
 			
 		}
 		catch(Exception e) {
