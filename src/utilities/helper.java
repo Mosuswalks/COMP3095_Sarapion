@@ -3,7 +3,7 @@ package utilities;
 import java.util.regex.Pattern;
 import java.util.*;
 
-public class Helper {
+public class helper {
 	
 	public static boolean validName(String name) {
 		boolean nameMatch = Pattern.matches("[a-zA-Z]", name);
@@ -39,10 +39,10 @@ public class Helper {
 		if(!validEmail(userCred.get("email"))) {
 			formErrors.add("Invalid Email Address.");
 		}
-//		
-////		if(!validPassword(userCred.get("password"))) {
-////			formErrors.add("Passwords must be between 6-12 characters and contain 1 uppercase letter and 1 special character(ex. !*&$).");
-////		}
+		
+		if(!validPassword(userCred.get("password"))) {
+			formErrors.add("Passwords must be between 6-12 characters and contain 1 uppercase letter and 1 special character(ex. !*&$).");
+		}
 		
 		if(userCred.get("password") == userCred.get("passwordConfirm")){
 			formErrors.add("Passwords do not match.");
