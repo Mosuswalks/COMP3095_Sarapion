@@ -21,7 +21,7 @@
                 <nav class="navbar">
                     <div class="container">
                         <div class="navbar-brand">
-                            <a class="navbar-item" href="../">
+                            <a class="navbar-item" href="/dashboard">
                                 Sarapion
                             </a>
                             <span class="navbar-burger burger" data-target="navbarMenu">
@@ -34,20 +34,21 @@
                             <div class="navbar-start">
                                 <div class="tabs is-right">
                                     <ul>
-                                        <li class="is-active"><a>Tab1</a></li>
-                                        <li><a href="">Tab2</a></li>
-                                        <li><a href="">Tab3</a></li>
-                                        <li><a href="">Tab4</a></li>
+                                        <li><a href="jsp/tab1.jsp">Tab1</a></li>
+                                        <li><a href="jsp/tab2.jsp">Tab2</a></li>
+                                        <li><a href="jsp/tab3.jsp">Tab3</a></li>
+                                        <li><a href="jsp/tab4.jsp">Tab4</a></li>
                                     </ul>
                                     
                                 </div>
                             </div>
                       
-                                <div class="navbar-end">
-	                                <form method="post" action="../logout">
+                                <div class="navbar-end"><br>
+                                <p class="navbar-item has-text">Welcome,&nbsp;<span class="has-text-left has-text-weight-semibold"><%= session.getAttribute("firstName") %></span></p>
+	                                <form method="post" action="${pageContext.request.contextPath}/logout">
 		                            		<span class="navbar-item">
-		                					<button class="button is-info is-inverted is-outlined" type="submit" ><i class="fas fa-sign-out-alt"></i>Logout</button>
-		                   
+		                					<button class="button is-info is-inverted is-outlined" type="submit"><i class="fas fa-sign-out-alt"></i>Logout</button>
+
 		                                </span>
 		                            </form>
 	                            </div>       
@@ -57,7 +58,7 @@
             </div>
             <div class="hero-body">
                 <div class="container has-text-centered">
-                    <h1 class="title">
+                    <h1 class="title is-size-1">
                     Sarapion
                     </h1>
                     <h2 class="subtitle">
@@ -116,19 +117,18 @@
             <div class="container">
                 <div class="columns">
                     <div class="column is-half">
-                        <h2><strong>Category</strong></h2>
+                        <h2><strong>Contributers</strong></h2>
                         <ul>
-                            <li><a href="#">Mohamed Abdi </a>100-649-804</li>
-                            <li><a href="#">Kevin Ly </a></li>
-                            <li><a href="#">ZhiRun Wu</a></li>
-                            <li><a href="#">Carol Hung</a></li>
+                            <li><i class="fas fa-user-ninja"></i>Mohamed Abdi 100-649-804</li>
+                            <li>Kevin Ly 101-082-639</li>
+                            <li>ZhiRun Yulu 101-065-994</li>
+                            <li>Carol Hung 101-019-479</li>
                         </ul>
                     </div>
                     
                 </div>
             
             </div>
-            <script src="../js/bulma.js"></script>
         </footer>
     </body>
 

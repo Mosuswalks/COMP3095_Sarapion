@@ -115,8 +115,8 @@
                     <div class="field">
 					  <div class="control has-text-centered">
 					    <label class="checkbox">
-					      <input type="checkbox">
-					      I agree to the <a class="has-text-link"href="https://google.com">terms and conditions</a>
+					      <input type="checkbox" name="termConfirm" value="true">
+					      I agree to the <a class="has-text-link"href="jsp/terms.jsp">terms and conditions</a>
 					    </label>
 					  </div>
 					</div>

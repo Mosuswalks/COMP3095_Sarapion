@@ -1,3 +1,12 @@
+/******************************************************************************************************
+ * Project: Sarapion
+ * Assignment: 1
+ * Author: Mohamed Abdi, Carol Hung, Kevin Ly, ZhiRun Yulu
+ * Student Numbers: 100-649-804, 101-019-479, 101-082-639, 101-065-994
+ * Date: October 28 2018
+ * Description: This file contains the Servlet which handles the registering new users to our site.
+
+********************************************************************************************************/
 
 package register.servlet;
 
@@ -8,39 +17,35 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 
 import java.util.*;
 import utilities.*;
 
 
-/**
- * Servlet implementation class Register
- */
+
 @WebServlet("/Register")
 public class Register extends HttpServlet {
-	private static final long serialVersionUID = 1L;
        
+    
     /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Register() {
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+
+	public Register() {
         super();
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.getRequestDispatcher("jsp/register.jsp").forward(request, response);
 		
 	}
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String firstName = request.getParameter("firstName");
@@ -48,7 +53,8 @@ public class Register extends HttpServlet {
 		String address = request.getParameter("address");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-		String passwordConfirm = request.getParameter("passwordConfirmation");
+		String passwordConfirmation = request.getParameter("passwordConfirmation");
+		String termsCheckbox = request.getParameter("termConfirm");
 		
 		
 		HashMap<String, String> userCred = new HashMap<String, String>();
@@ -57,7 +63,8 @@ public class Register extends HttpServlet {
 		userCred.put("addr", address);
 		userCred.put("email", email);
 		userCred.put("password", password);
-		userCred.put("passwordConfirm", passwordConfirm);
+		userCred.put("passwordConfirmation", passwordConfirmation);
+		userCred.put("termsCheckbox",termsCheckbox);
 		
 		List<String> formErrors = Helper.validateRegistration(userCred);
 		
@@ -66,16 +73,11 @@ public class Register extends HttpServlet {
 				
 				DatabaseAccess.registerUser(userCred);
 				
-				//Setup HTTP Session
-				HttpSession session = request.getSession();
 				
-				// Set the username as an attribute
-				session.setAttribute("username", email);
-				session.setMaxInactiveInterval(60 * 5);
+				RegistrationEmail.sendEmail(userCred.get("email"), userCred.get("fName"),userCred.get("lName"));
 				
-				RegistrationEmail.sendEmail(userCred.get("email"), userCred.get("fName"));
-				
-				request.getRequestDispatcher("jsp/dashboard.jsp").forward(request, response);
+				request.setAttribute("email", email);
+				request.getRequestDispatcher("jsp/success_confirmation.jsp").forward(request, response);
 				
 			} catch (Exception e) {
 				e.printStackTrace();

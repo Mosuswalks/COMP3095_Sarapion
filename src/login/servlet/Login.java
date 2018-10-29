@@ -1,3 +1,14 @@
+/******************************************************************************************************
+ * Project: Sarapion
+ * Assignment: 1
+ * Author: Mohamed Abdi, Carol Hung, Kevin Ly, ZhiRun Yulu
+ * Student Numbers: 100-649-804, 101-019-479, 101-082-639, 101-065-994
+ * Date: October 28 2018
+ * Description: This file contains the Servlet that handles user authentication.
+
+********************************************************************************************************/
+
+
 package login.servlet;
 import java.io.IOException;
 import java.sql.Connection;
@@ -29,7 +40,7 @@ public class Login extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.sendRedirect("jsp/login.jsp");
+		request.getRequestDispatcher("jsp/login.jsp").forward(request, response);
 	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -42,28 +53,30 @@ public class Login extends HttpServlet {
 		String reCaptcha = request.getParameter("g-recaptcha-response");
 		// 
 		if(VerifyReCaptcha.verify(reCaptcha)) {
+			
 			try {
-				boolean isValidUser = DatabaseAccess.validateUser(username,password);
-				//isValidUser
-				if(isValidUser){
-					
+				String isValidUser = DatabaseAccess.validateUser(username,password);
+				
+				
+				if(isValidUser != null){
+					System.out.println(isValidUser);
 					//Setup HTTP Session
 					HttpSession session = request.getSession();
 					
 					// Set the username as an attribute
 					session.setAttribute("username", username);
-					session.setAttribute("firstName", arg1);
+					session.setAttribute("firstName", isValidUser);
 					session.setMaxInactiveInterval(60 * 5);
 					
 					
 					// Forward to the dashboard page
-					response.sendRedirect("jsp/dashboard.jsp");
-					//request.getRequestDispatcher("jsp/dashboard.jsp").forward(request, response);
+					request.getRequestDispatcher("jsp/dashboard.jsp").forward(request, response);
+					
 				}
 				else {
 					String loginError = "Invalid Credentials. Please try again.";
 					request.setAttribute("error", loginError);
-					response.sendRedirect("jsp/login.jsp");
+					request.getRequestDispatcher("login").forward(request, response);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();

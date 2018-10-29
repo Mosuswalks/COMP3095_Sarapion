@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <!-- Bulma Version 0.7.1-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
-    <link rel="stylesheet" type="text/css" href="../css/login.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css">
     <script src='https://www.google.com/recaptcha/api.js'></script>
     
 </head>
@@ -32,7 +32,7 @@
                     %>
                     
                     <div class="box">
-                        <form method="post" action="Login">
+                        <form method="post" action="${pageContext.request.contextPath}/login">
                             <div class="field">
                                 <div class="control has-icons-left">
                                     <input class="input is-large" type="email" name="username" placeholder="Enter Email">

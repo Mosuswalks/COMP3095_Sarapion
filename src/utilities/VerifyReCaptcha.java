@@ -1,4 +1,15 @@
+/******************************************************************************************************
+ * Project: Sarapion
+ * Assignment: 1
+ * Author: Mohamed Abdi, Carol Hung, Kevin Ly, ZhiRun Yulu
+ * Student Numbers: 100-649-804, 101-019-479, 101-082-639, 101-065-994
+ * Date: October 28 2018
+ * Description: This file contains the ReCaptcha Verification method for our login.
+
+********************************************************************************************************/
+
 package utilities;
+
 
 import java.net.URL;
 import java.io.InputStream;

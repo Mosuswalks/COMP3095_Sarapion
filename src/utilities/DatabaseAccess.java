@@ -1,8 +1,15 @@
+/******************************************************************************************************
+ * Project: Sarapion
+ * Assignment: 1
+ * Author: Mohamed Abdi, Carol Hung, Kevin Ly, ZhiRun Yulu
+ * Student Numbers: 100-649-804, 101-019-479, 101-082-639, 101-065-994
+ * Date: October 28 2018
+ * Description: This file contains the Database Access Objects and Methods for our application.
+
+********************************************************************************************************/
 
 package utilities;
-/****************************************************************************************************
-* Description: DatabaseAccess - Example provides access to database
-****************************************************************************************************/
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -10,8 +17,7 @@ import java.util.*;
 
 public class DatabaseAccess {
 	
-	  private static String username = "admin@domain.ca";
-	  private static String password = "P@ssword1";
+	  
 	  private static String database = "COMP3095";
 	
 	  private static Connection connect = null;
@@ -30,9 +36,8 @@ public class DatabaseAccess {
 	  }
 	  
 	  
-	  public static Boolean validateUser(String username, String password) throws Exception {
-		  
-		  boolean isValidUser = false;
+	  public static String validateUser(String username, String password) throws Exception {
+		 
 		  try {
 			  
 			  // Get the connection for the database
@@ -48,16 +53,15 @@ public class DatabaseAccess {
 			  
 			  // Execute Statement
 			  ResultSet set = statement.executeQuery();
-			 
-			  while(set.next()) {
-				  String firstName = set.getString(0);
-				  isValidUser = true;
+			  
+			  if(set.next()) {
+				  return set.getString(2);
 			  }
+			  return null;
 		  }
 		  catch (Exception e){
 			  throw e;
 		  }
-		  return isValidUser;
 	  }
 	  
 	  
@@ -66,9 +70,9 @@ public class DatabaseAccess {
 			  
 			  // Get the connection for the database
 			  Connection connection = connectDataBase();
-			  
+			 			  
 			  //Write the SQL Query
-			  String registerQuery = "INSERT INTO users (firstname, lastname, email, address, password) VALUES (?,?,?,?,?)";
+			  String registerQuery = "INSERT INTO users (firstname, lastname, email, address, role, password) VALUES (?,?,?,?,?,?)";
 			  
 			  // Set Parameters with PreparedStatement
 			  java.sql.PreparedStatement statement = connection.prepareStatement(registerQuery);
@@ -76,7 +80,8 @@ public class DatabaseAccess {
 			  statement.setString(2, userCred.get("lName"));
 			  statement.setString(3, userCred.get("email"));
 			  statement.setString(4, userCred.get("addr"));
-			  statement.setString(5, userCred.get("password"));
+			  statement.setString(5, "user");
+			  statement.setString(6, userCred.get("password"));
 			  
 			  // Execute Statement
 			  statement.execute();
@@ -86,7 +91,30 @@ public class DatabaseAccess {
 		  catch (Exception e){
 			  throw e;
 		  }
-		  
+	  }
+	  
+	  public static boolean isUniqueUser(String username) throws Exception{
+		  try {
+			  Connection connection = connectDataBase();
+			  
+			  String uniqueQuery = "SELECT COUNT(*) FROM USERS WHERE email = (?)";
+			  
+			  java.sql.PreparedStatement statement = connection.prepareStatement(uniqueQuery);
+			  statement.setString(1, username);
+			  
+			  
+			  ResultSet set = statement.executeQuery();
+			  
+			  if(set.next()) {
+				  if(Integer.parseInt(set.getString(1)) == 0) {
+					  return true;
+				  }
+			  }
+			  return false;
+		  }
+		  catch(Exception e) {
+			  throw e;
+		  }
 	  }
 
 }
